@@ -1,16 +1,26 @@
 package lotto.service;
 
-import lotto.domain.Money;
+import camp.nextstep.edu.missionutils.Randoms;
+import lotto.Lotto;
+import lotto.domain.UserLotto;
+
+import java.util.Collections;
+import java.util.List;
 
 public class LottoService {
 
-    public void run() {
-        // TODO: 2023-11-07  구입 금액 입력받기
-        Money money = new Money();
-        int lottoCount = money.inputMoney();
-        // TODO: 2023-11-07 금액만큼 로또 발급
-        // TODO: 2023-11-07 당첨번호 입력하기
-        // TODO: 2023-11-07 보너스 번호 입력하기
-        // TODO: 2023-11-07 당첨 통계 출력
+    public UserLotto getLotto(int lottoCount) {
+        UserLotto userLotto = new UserLotto();
+        for (int i = 0; i < lottoCount; i++) {
+            userLotto.insertLotto(generateLottoNumber());
+        }
+        return userLotto;
+    }
+
+    public Lotto generateLottoNumber() {
+        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+        Collections.sort(numbers);
+        System.out.println(numbers.toString());
+        return new Lotto(numbers);
     }
 }
