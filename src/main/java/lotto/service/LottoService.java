@@ -2,6 +2,7 @@ package lotto.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import lotto.Lotto;
+import lotto.domain.PrizeNumber;
 import lotto.domain.UserLotto;
 
 import java.util.Collections;
@@ -23,4 +24,9 @@ public class LottoService {
         System.out.println(numbers.toString());
         return new Lotto(numbers);
     }
+
+    public PrizeNumber setPrizeNumber(){
+
+    }
 }
+// TODO: 2023-11-08 backup
